@@ -1,0 +1,8 @@
+/node_modules
+/yarn-error.log
+/yarn.lock
+.DS_Store
+.env
+/context.json
+/deploy.env
+/event.json
