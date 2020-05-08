@@ -1,0 +1,15 @@
+{
+  "name": "database-uploader",
+  "version": "0.0.1",
+  "description": "A csv parser to upload data to a DynamoDB table",
+  "main": "index.js",
+  "author": "David Flores <david@fxdigital.uk>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "aws-sdk": "^2.672.0",
+    "csv-parser": "^2.3.2",
+    "dotenv": "^8.2.0",
+    "dynogels-promise": "^1.0.19"
+  }
+}
