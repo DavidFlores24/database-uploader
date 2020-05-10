@@ -40,7 +40,6 @@ const getAllFiles = async (directories, acceptedExtensions) => {
 
 const mapFileObjects = async files => {
     const s3 = new AWS.S3();
-
     const promises = files.map(async file => {
         if (file !== undefined) {
             const stream = fs.createReadStream(file);
@@ -74,7 +73,6 @@ const mapFileObjects = async files => {
  */
 const uploadToS3 = async (directories, acceptedExtensions) => {
     console.log('uploading to S3');
-    let uploadedFiles = [];
 
     return getAllFiles(directories, acceptedExtensions).then(files =>
         mapFileObjects(files)
