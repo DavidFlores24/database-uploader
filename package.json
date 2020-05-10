@@ -8,8 +8,7 @@
   "private": true,
   "dependencies": {
     "aws-sdk": "^2.672.0",
-    "csv-parser": "^2.3.2",
     "dotenv": "^8.2.0",
-    "dynogels-promise": "^1.0.19"
+    "neat-csv": "^5.2.0"
   }
 }
