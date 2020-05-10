@@ -1,11 +1,8 @@
 require('dotenv').config();
-
-const fs = require('fs');
-const csv = require('csv-parser');
 const AWS = require('aws-sdk');
-const path = require('path');
 
 const uploadToS3 = require('./uploadToS3');
+const uploadToDynamo = require('./uploadToDynamo');
 
 AWS.config.update({
     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
@@ -13,9 +10,14 @@ AWS.config.update({
     region: process.env.AWS_REGION
 });
 
-uploadToS3(['/data/blessings', '/data/mantras', '/data/songs'], ['.mp3']).then(
-    uploads => {
-        console.log('promise fulfilled');
-        console.log(uploads);
-    }
-);
+uploadToS3(
+    ['/data/blessings', '/data/mantras', '/data/songs', '/data/meditations'],
+    ['.mp3']
+).then(uploads => {
+    console.log('promise fulfilled');
+    console.log(uploads);
+
+    uploadToDynamo('/data/data.csv', 'audioFileId', uploads).then(
+        console.log('uploaded csv to dynamo')
+    );
+});
