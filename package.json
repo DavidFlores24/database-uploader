@@ -1,14 +1,13 @@
 {
-  "name": "database-uploader",
-  "version": "0.0.1",
-  "description": "A csv parser to upload data to a DynamoDB table",
-  "main": "index.js",
-  "author": "David Flores <david@fxdigital.uk>",
-  "license": "MIT",
-  "private": true,
-  "dependencies": {
-    "aws-sdk": "^2.672.0",
-    "dotenv": "^8.2.0",
-    "neat-csv": "^5.2.0"
-  }
+    "name": "database-uploader",
+    "version": "0.0.1",
+    "description": "A csv parser to upload data to a DynamoDB table",
+    "main": "index.js",
+    "author": "David Flores <david@fxdigital.uk>",
+    "license": "MIT",
+    "private": false,
+    "dependencies": {
+        "aws-sdk": "^2.672.0",
+        "neat-csv": "^5.2.0"
+    }
 }
