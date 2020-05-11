@@ -1,13 +1,13 @@
 {
-    "name": "database-uploader",
-    "version": "0.0.1",
-    "description": "A csv parser to upload data to a DynamoDB table",
-    "main": "index.js",
-    "author": "David Flores <david@fxdigital.uk>",
-    "license": "MIT",
-    "private": false,
-    "dependencies": {
-        "aws-sdk": "^2.672.0",
-        "neat-csv": "^5.2.0"
-    }
+  "name": "database-uploader",
+  "version": "1.0.0",
+  "description": "A simple way of uploading a csv that references large files into a DynamoDB Table. The uploader will store the files on an S3 bucket and reference the URL on the DynamoDB Table.",
+  "main": "index.js",
+  "author": "David Flores <david@fxdigital.uk>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "aws-sdk": "^2.672.0",
+    "neat-csv": "^5.2.0"
+  }
 }
