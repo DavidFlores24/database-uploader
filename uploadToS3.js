@@ -43,7 +43,7 @@ const getAllFiles = async (directories, acceptedExtensions) => {
   return files.flat();
 };
 
-const mapFileObjects = async files => {
+const mapFileObjects = async (bucketName, files) => {
   const s3 = new AWS.S3();
   const promises = files.map(async file => {
     try {
@@ -53,7 +53,7 @@ const mapFileObjects = async files => {
 
         const fileName = path.basename(file);
         const uploadParams = {
-          Bucket: process.env.S3_BUCKET_NAME,
+          Bucket: bucketName,
           Body: stream,
           Key: fileName
         };
@@ -75,16 +75,17 @@ const mapFileObjects = async files => {
 };
 
 /**
- * Upload all the files in the specified directories to the S3 bucket defined on the .env file
+ * Upload all the files in the specified directories to the S3 bucket
+ * @param {string} bucketName name of the S3 bucket
  * @param {string[]} directories absolute path to directories where the files are found
  * @param {string[]} acceptedExtensions file extensions to be uploaded
  * @returns {Promise.<uploadedFiles>} object with fileNames and their location on S3
  */
-const uploadToS3 = async (directories, acceptedExtensions) => {
+const uploadToS3 = async (bucketName, directories, acceptedExtensions) => {
   console.log("uploading to S3");
 
   return getAllFiles(directories, acceptedExtensions).then(files =>
-    mapFileObjects(files)
+    mapFileObjects(bucketName, files)
   );
 };
 
